@@ -5,11 +5,22 @@ using System.Text;
 
 namespace InventarioEquiposFase3N.Models
 {
-    public class Empleado : INotifyPropertyChanged
+    public class Empleado : INotifyPropertyChanged  
     {
 
-
-
+        private int _id;
+        public int Id
+        {
+            get => _id;
+            set
+            {
+                if (_id != value)
+                {
+                    _id = value;
+                    OnPropertyChanged(nameof(Id));
+                }
+            }
+        }
 
         private string _dui = string.Empty;
         public string Dui
@@ -25,7 +36,6 @@ namespace InventarioEquiposFase3N.Models
             }
         }
 
-
         private string _nombre = string.Empty;
         public string Nombre
         {
@@ -40,6 +50,19 @@ namespace InventarioEquiposFase3N.Models
             }
         }
 
+        private string _apellido = string.Empty;
+        public string Apellido
+        {
+            get => _apellido;
+            set
+            {
+                if (_apellido != value)
+                {
+                    _apellido = value;
+                    OnPropertyChanged(nameof(Apellido));
+                }
+            }
+        }
 
         private string _cargo = string.Empty;
         public string Cargo
@@ -54,7 +77,6 @@ namespace InventarioEquiposFase3N.Models
                 }
             }
         }
-
 
         private string _departamento = string.Empty;
         public string Departamento
@@ -85,27 +107,24 @@ namespace InventarioEquiposFase3N.Models
             }
         }
 
-        public Empleado()
+        public Empleado() { }
+
+        public Empleado(int id, string dui, string nombre, string apellido, string cargo, string departamento, string correo)
         {
+            Id = id;
+            Dui = dui;
+            Nombre = nombre;
+            Apellido = apellido;
+            Cargo = cargo;
+            Departamento = departamento;
+            Correo = correo;
         }
-
-        public Empleado(string dui, string nombre, string cargo, string departamento, string correo)
-        {
-            _dui = dui;
-            _nombre = nombre;
-            _cargo = cargo;
-            _departamento = departamento;
-            _correo = correo;
-        }
-
-
 
         public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
+        protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
         }
-        
     }
 }

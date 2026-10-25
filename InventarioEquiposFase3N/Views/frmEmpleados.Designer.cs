@@ -43,9 +43,9 @@ namespace InventarioEquiposFase3N
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEmpleados).BeginInit();
             SuspendLayout();
-            //
+            // 
             // toolStrip1
-            //
+            // 
             toolStrip1.BackColor = SystemColors.GradientActiveCaption;
             toolStrip1.ImageScalingSize = new Size(20, 20);
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolBtnNuevoEmpleado, toolBtnEditarEmpleados, toolBtnEliminarEmpleado, toolBtnBuscarEmpleado, txtBuscarEmpleado });
@@ -54,47 +54,51 @@ namespace InventarioEquiposFase3N
             toolStrip1.Size = new Size(957, 27);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "toolStrip1";
-            //
+            // 
             // toolBtnNuevoEmpleado
-            //
+            // 
             toolBtnNuevoEmpleado.Image = (Image)resources.GetObject("toolBtnNuevoEmpleado.Image");
             toolBtnNuevoEmpleado.ImageTransparentColor = Color.Magenta;
             toolBtnNuevoEmpleado.Name = "toolBtnNuevoEmpleado";
             toolBtnNuevoEmpleado.Size = new Size(76, 24);
             toolBtnNuevoEmpleado.Text = "Nuevo";
-            //
+            toolBtnNuevoEmpleado.Click += toolBtnNuevoEmpleado_Click;
+            // 
             // toolBtnEditarEmpleados
-            //
+            // 
             toolBtnEditarEmpleados.Image = (Image)resources.GetObject("toolBtnEditarEmpleados.Image");
             toolBtnEditarEmpleados.ImageTransparentColor = Color.Magenta;
             toolBtnEditarEmpleados.Name = "toolBtnEditarEmpleados";
             toolBtnEditarEmpleados.Size = new Size(72, 24);
             toolBtnEditarEmpleados.Text = "Editar";
-            //
+            toolBtnEditarEmpleados.Click += toolBtnEditarEmpleados_Click;
+            // 
             // toolBtnEliminarEmpleado
-            //
+            // 
             toolBtnEliminarEmpleado.Image = (Image)resources.GetObject("toolBtnEliminarEmpleado.Image");
             toolBtnEliminarEmpleado.ImageTransparentColor = Color.Magenta;
             toolBtnEliminarEmpleado.Name = "toolBtnEliminarEmpleado";
             toolBtnEliminarEmpleado.Size = new Size(87, 24);
             toolBtnEliminarEmpleado.Text = "Eliminar";
-            //
+            toolBtnEliminarEmpleado.Click += toolBtnEliminarEmpleado_Click;
+            // 
             // toolBtnBuscarEmpleado
-            //
+            // 
             toolBtnBuscarEmpleado.Image = (Image)resources.GetObject("toolBtnBuscarEmpleado.Image");
             toolBtnBuscarEmpleado.ImageTransparentColor = Color.Magenta;
             toolBtnBuscarEmpleado.Name = "toolBtnBuscarEmpleado";
             toolBtnBuscarEmpleado.Size = new Size(76, 24);
             toolBtnBuscarEmpleado.Text = "Buscar";
-            //
+            // 
             // txtBuscarEmpleado
-            //
+            // 
             txtBuscarEmpleado.Name = "txtBuscarEmpleado";
             txtBuscarEmpleado.Size = new Size(139, 27);
             txtBuscarEmpleado.ToolTipText = "Código de empleado a buscar";
-            //
+            txtBuscarEmpleado.Click += txtBuscarEmpleado_Click;
+            // 
             // dgvEmpleados
-            //
+            // 
             dgvEmpleados.AllowUserToAddRows = false;
             dgvEmpleados.AllowUserToDeleteRows = false;
             dgvEmpleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -116,31 +120,32 @@ namespace InventarioEquiposFase3N
             dgvEmpleados.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dgvEmpleados.Size = new Size(926, 160);
             dgvEmpleados.TabIndex = 1;
-            //
+            // 
             // btnSalir
-            //
+            // 
             btnSalir.Location = new Point(787, 206);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(151, 29);
             btnSalir.TabIndex = 2;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
-            //
+            btnSalir.Click += btnSalir_Click;
+            // 
             // btnOrdenar
-            //
+            // 
             btnOrdenar.Location = new Point(12, 206);
             btnOrdenar.Name = "btnOrdenar";
             btnOrdenar.Size = new Size(181, 29);
             btnOrdenar.TabIndex = 3;
             btnOrdenar.Text = "Ordenar por apellido";
             btnOrdenar.UseVisualStyleBackColor = true;
-            //
+            // 
             // frmEmpleados
-            //
+            // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(957, 288);
+            ClientSize = new Size(957, 266);
             Controls.Add(btnOrdenar);
             Controls.Add(btnSalir);
             Controls.Add(dgvEmpleados);
