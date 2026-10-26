@@ -1,4 +1,5 @@
 ﻿
+using InventarioEquiposFase3N.Controllers;
 using System;
 using System.Drawing;
 using System.Drawing.Text;
@@ -9,12 +10,14 @@ namespace InventarioEquiposFase3N
     public partial class frmPrincipal : Form
     {
         private readonly Controllers.EmpleadoController _empleadoController;
+        private readonly Controllers.EquiposController _equiposController;
 
-        public frmPrincipal(Controllers.EmpleadoController empleadoController)
+        public frmPrincipal(Controllers.EmpleadoController empleadoController, Controllers.EquiposController equiposController)
         {
             InitializeComponent();
 
             _empleadoController = empleadoController;
+            _equiposController = equiposController;
 
             pictureBox1.BackColor = Color.FromArgb(248, 249, 250);
 
@@ -29,7 +32,7 @@ namespace InventarioEquiposFase3N
 
         private void mnuEquipo_Click(object sender, EventArgs e)
         {
-            frmEquipos frm = new frmEquipos();
+            frmEquipos frm = new frmEquipos(_equiposController);
             frm.MdiParent = this;
             frm.Show();
         }

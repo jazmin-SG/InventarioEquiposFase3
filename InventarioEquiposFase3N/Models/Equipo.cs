@@ -126,9 +126,21 @@ namespace InventarioEquiposFase3N.Models
                 }
             }
         }
+        public Equipo()
+        {
+        }
 
-
-
+        public Equipo(string codigo, string marca, string modelo, string numeroSerie, TipoEquipo tipoEquipo, Estado estado, DateTime fechaCompra, int anioGarantia)
+        {
+            Codigo = codigo;
+            Marca = marca;
+            Modelo = modelo;
+            NumeroSerie = numeroSerie;
+            TipoEquipo = tipoEquipo;
+            Estado = estado;
+            FechaCompra = fechaCompra;
+            AnioGarantia = anioGarantia;
+        }
 
 
 

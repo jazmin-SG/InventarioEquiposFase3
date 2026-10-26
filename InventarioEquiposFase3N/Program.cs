@@ -16,8 +16,11 @@ namespace InventarioEquiposFase3N
             ApplicationConfiguration.Initialize();
             var repositorioEmpleado = new RepositorioEmpleados();
             var empleadoController = new EmpleadoController(repositorioEmpleado);
+            var repositorioEquipos = new RepositorioEquipos();
+            var equiposController = new EquiposController(repositorioEquipos);
 
-            Application.Run(new frmPrincipal(empleadoController));
+            Application.Run(new frmPrincipal(empleadoController, equiposController));
+
         }
     }
 }
