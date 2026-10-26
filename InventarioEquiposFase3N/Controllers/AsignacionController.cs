@@ -67,8 +67,6 @@ namespace InventarioEquiposFase3N.Controllers
             _repositorioAsignacion.Eliminar(asignacion);
         }
 
-
-
         private static void copiarPropiedades(Asignacion original, Asignacion copia)
         {
             original.Empleado = copia.Empleado;

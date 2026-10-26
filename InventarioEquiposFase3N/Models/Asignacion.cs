@@ -109,9 +109,6 @@ namespace InventarioEquiposFase3N.Models
         }
 
 
-
-
-
         public event PropertyChangedEventHandler? PropertyChanged;
 
         private void OnPropertyChanged(string propertyName)

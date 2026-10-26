@@ -47,7 +47,7 @@ namespace InventarioEquiposFase3N.Repositorios
                 throw new InvalidOperationException("El empleado seleccionado no existe.");
             }
 
-            var equipo = _repositorioEquipos.ObtenerTodos().FirstOrDefault(e => e.Codigo == entidad.Equipo); // Ajusta 'Codigo'
+            var equipo = _repositorioEquipos.ObtenerTodos().FirstOrDefault(e => e.Codigo == entidad.Equipo); 
             if (equipo == null)
             {
                 throw new InvalidOperationException("El equipo seleccionado no existe.");
@@ -61,8 +61,6 @@ namespace InventarioEquiposFase3N.Repositorios
             base.Agregar(entidad);
         }
     }
-
-
 
 }
 
