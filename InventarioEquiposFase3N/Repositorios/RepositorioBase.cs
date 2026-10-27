@@ -116,10 +116,6 @@ namespace InventarioEquiposFase3N.Repositorios
 
 
 
-
-
-
-
         protected virtual void ValidarDatos(List<T> datos)
         {
             if (datos.Any(entidad => entidad is null))

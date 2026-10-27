@@ -1,65 +1,79 @@
 ﻿using InventarioEquiposFase3N.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-
 namespace InventarioEquiposFase3N.Repositorios
 {
-    public class RepositorioEquipos:IRepositorio<Equipo>
+    public class RepositorioEquipos : RepositorioBase<Equipo>
     {
-        private readonly BindingList<Equipo> _equipos = new BindingList<Equipo>();
-
-        public void Actualizar(Equipo entidad)
+        public RepositorioEquipos() : base("equipos.json")
         {
-            var equipoExistente = _equipos.FirstOrDefault(e => e.Codigo == entidad.Codigo);
+            Leer();
+        }
+
+        public override void Actualizar(Equipo entidad)
+        {
+            ArgumentNullException.ThrowIfNull(entidad);
+
+            var equipoExistente = _entidades.FirstOrDefault(e => e.Codigo == entidad.Codigo);
+
             if (equipoExistente != null)
             {
-               equipoExistente.Marca = entidad.Marca;
+                equipoExistente.Marca = entidad.Marca;
                 equipoExistente.Modelo = entidad.Modelo;
                 equipoExistente.NumeroSerie = entidad.NumeroSerie;
                 equipoExistente.TipoEquipo = entidad.TipoEquipo;
                 equipoExistente.FechaCompra = entidad.FechaCompra;
                 equipoExistente.AnioGarantia = entidad.AnioGarantia;
                 equipoExistente.Estado = entidad.Estado;
+
+                Guardar();
+                _entidades.ResetItem(_entidades.IndexOf(equipoExistente));
             }
             else
             {
-                throw new KeyNotFoundException($"No se encontró un equipo con el código {entidad.Codigo}.");
+                throw new KeyNotFoundException(
+                    $"No se encontró un equipo con el código {entidad.Codigo}.");
             }
         }
 
-        public void Agregar(Equipo entidad)
+        public override void Agregar(Equipo entidad)
         {
-           if (Existecodigo(entidad.Codigo))
+            ArgumentNullException.ThrowIfNull(entidad);
+
+            if (Existecodigo(entidad.Codigo))
             {
-                throw new InvalidOperationException($"Ya existe un equipo con el código {entidad.Codigo}.");
+                throw new InvalidOperationException(
+                    $"Ya existe un equipo con el código {entidad.Codigo}.");
             }
-            _equipos.Add(entidad);
+
+            if (ExisteNumeroSerie(entidad.NumeroSerie))
+            {
+                throw new InvalidOperationException(
+                    "Ya existe un equipo con el mismo número de serie.");
+            }
+
+            base.Agregar(entidad);
         }
 
-        public void Eliminar(Equipo entidad)
+        public override void Eliminar(Equipo entidad)
         {
-            _equipos.Remove(entidad);
+            base.Eliminar(entidad);
         }
 
-        public BindingList<Equipo> ObtenerTodos()
-        {
-            return _equipos;
-        }
         public bool ExisteNumeroSerie(string numeroSerie)
         {
-            return _equipos.Any(e => e.NumeroSerie == numeroSerie);
+            return _entidades.Any(e => e.NumeroSerie == numeroSerie);
         }
-        
+
         public bool Existecodigo(string codigo)
         {
-            return _equipos.Any(e => e.Codigo == codigo);
+            return _entidades.Any(e => e.Codigo == codigo);
         }
+
         public Equipo? BuscarPorCodigo(string codigo)
         {
-            return _equipos.FirstOrDefault(e => e.Codigo == codigo);
+            return _entidades.FirstOrDefault(e => e.Codigo == codigo);
         }
     }
 }

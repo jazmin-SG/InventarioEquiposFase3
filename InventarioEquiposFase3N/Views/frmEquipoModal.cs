@@ -10,6 +10,7 @@ namespace InventarioEquiposFase3N
     public partial class frmEquipoModal : Form
     {
         public Equipo EquipoActual { get; }
+
         private readonly EquiposController _Controller;
         public frmEquipoModal(EquiposController equiposController, Equipo? equipo = null)
         {
