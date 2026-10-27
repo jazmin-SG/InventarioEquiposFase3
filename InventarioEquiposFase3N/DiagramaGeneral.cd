@@ -97,7 +97,7 @@
   <Class Name="InventarioEquiposFase3N.Repositorios.RepositorioMantenimientos" Collapsed="true">
     <Position X="7.5" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
       <FileName>Repositorios\RepositorioMantenimientos.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -141,6 +141,8 @@
         <Point X="6.5" Y="4.281" />
         <Point X="6.925" Y="4.281" />
         <Point X="6.925" Y="4.04" />
+        <Point X="7.257" Y="4.04" Type="JumpStart" />
+        <Point X="7.423" Y="4.04" Type="JumpEnd" />
         <Point X="8.172" Y="4.04" />
         <Point X="8.172" Y="4.25" />
       </Path>
@@ -179,7 +181,7 @@
       <Path>
         <Point X="3.75" Y="3.596" />
         <Point X="3.916" Y="3.596" Type="JumpStart" />
-        <Point X="4.083" Y="3.596" Type="JumpEnd" />
+        <Point X="4.082" Y="3.596" Type="JumpEnd" />
         <Point X="4.19" Y="3.596" />
         <Point X="4.19" Y="4.172" />
         <Point X="4.539" Y="4.172" Type="JumpStart" />
@@ -201,7 +203,7 @@
       <Path>
         <Point X="3.75" Y="4.596" />
         <Point X="3.916" Y="4.596" Type="JumpStart" />
-        <Point X="4.083" Y="4.596" Type="JumpEnd" />
+        <Point X="4.082" Y="4.596" Type="JumpEnd" />
         <Point X="4.622" Y="4.596" />
         <Point X="4.622" Y="3.735" />
         <Point X="5.75" Y="3.735" />
@@ -255,12 +257,14 @@
         <Point X="2.5" Y="1.682" />
         <Point X="3.999" Y="1.682" />
         <Point X="3.999" Y="5.244" />
-        <Point X="5.395" Y="5.244" Type="JumpStart" />
-        <Point X="5.562" Y="5.244" Type="JumpEnd" />
+        <Point X="5.589" Y="5.244" Type="JumpStart" />
+        <Point X="5.756" Y="5.244" Type="JumpEnd" />
         <Point X="6.345" Y="5.244" />
         <Point X="6.345" Y="4.832" />
         <Point X="7.119" Y="4.832" />
         <Point X="7.119" Y="4.593" />
+        <Point X="7.257" Y="4.593" Type="JumpStart" />
+        <Point X="7.423" Y="4.593" Type="JumpEnd" />
         <Point X="7.5" Y="4.593" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true">
@@ -274,6 +278,26 @@
     <ShowAsAssociation>
       <Field Name="_asignacionController" />
       <Field Name="_repoEquipo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="InventarioEquiposFase3N.frmMantenimientos" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABgAggECCAASEAAMCwIBADQAAAAAAiAAgAAAAACAA=</HashCode>
+      <FileName>Views\frmMantenimientos.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_repositorio" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="InventarioEquiposFase3N.frmMantenimientoModal" Collapsed="true">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAQAAICAACJAQABKAAAECAABAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Views\frmMantenimientoModal.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="MantenimientoActual" />
     </ShowAsAssociation>
   </Class>
   <Interface Name="InventarioEquiposFase3N.Repositorios.IRepositorio&lt;T&gt;" Collapsed="true">
