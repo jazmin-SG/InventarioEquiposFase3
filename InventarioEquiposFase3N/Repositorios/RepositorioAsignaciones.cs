@@ -42,7 +42,7 @@ namespace InventarioEquiposFase3N.Repositorios
                     $"El equipo '{entidad.Equipo}' ya está asignado al empleado '{equipoOcupado.Empleado}'.");
             }
 
-            if (!_repositorioEmpleados.ObtenerTodos().Any(e => e.Dui == entidad.Empleado)) 
+            if (!_repositorioEmpleados.ObtenerTodos().Any(e => e.Nombre == entidad.Empleado)) 
             {
                 throw new InvalidOperationException("El empleado seleccionado no existe.");
             }

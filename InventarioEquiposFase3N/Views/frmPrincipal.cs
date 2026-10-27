@@ -12,12 +12,18 @@ namespace InventarioEquiposFase3N
         private readonly Controllers.EmpleadoController _empleadoController;
         private readonly Controllers.EquiposController _equiposController;
 
-        public frmPrincipal(Controllers.EmpleadoController empleadoController, Controllers.EquiposController equiposController)
+        private readonly Controllers.AsignacionController _asignacionController;
+
+        private readonly Repositorios.RepositorioEquipos _repoEquipos;
+
+        public frmPrincipal(Controllers.EmpleadoController empleadoController, Controllers.EquiposController equiposController, Controllers.AsignacionController asignacionController, Repositorios.RepositorioEquipos repoEquiposs)
         {
             InitializeComponent();
 
             _empleadoController = empleadoController;
             _equiposController = equiposController;
+            _asignacionController = asignacionController;
+            _repoEquipos = repoEquiposs;
 
             pictureBox1.BackColor = Color.FromArgb(248, 249, 250);
 
@@ -60,7 +66,7 @@ namespace InventarioEquiposFase3N
 
         private void mnuAsignarEquipos_Click(object sender, EventArgs e)
         {
-            frmAsignarEquipos frm = new frmAsignarEquipos();
+            frmAsignarEquipos frm = new frmAsignarEquipos(_asignacionController, _repoEquipos);
             frm.MdiParent = this;
             frm.Show();
         }

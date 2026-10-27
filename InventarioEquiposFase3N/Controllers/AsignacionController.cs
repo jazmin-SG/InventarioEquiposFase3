@@ -10,10 +10,14 @@ namespace InventarioEquiposFase3N.Controllers
     public class AsignacionController
     {
         private readonly RepositorioAsignaciones _repositorioAsignacion;
+        private readonly RepositorioEquipos _repositorioEquipos;
+        private readonly RepositorioEmpleados _repositorioEmpleados;
 
-        public AsignacionController(RepositorioAsignaciones repositorio)
+        public AsignacionController(RepositorioAsignaciones repositorio, RepositorioEquipos repositorioEquipos, RepositorioEmpleados repositorioEmpleados)
         {
             _repositorioAsignacion = repositorio;
+            _repositorioEquipos = repositorioEquipos;
+            _repositorioEmpleados = repositorioEmpleados;
         }
 
         public BindingList<Asignacion> ObtenerTodos()
@@ -45,7 +49,7 @@ namespace InventarioEquiposFase3N.Controllers
                 FechaDevolucion = original.FechaDevolucion,
                 Observacion = original.Observacion
             };
-            copiarPropiedades(copia, original);
+            copiarPropiedades(original, copia);
             try
             {
                 _repositorioAsignacion.Actualizar(original);
@@ -65,6 +69,16 @@ namespace InventarioEquiposFase3N.Controllers
                 throw new ArgumentNullException("La asignación no puede ser nula");
             }
             _repositorioAsignacion.Eliminar(asignacion);
+        }
+
+        public BindingList<Empleado> ObtenerEmpleados()
+        {
+            return _repositorioEmpleados.ObtenerTodos();
+        }
+
+        public BindingList<Equipo> ObtenerEquipos()
+        {
+            return _repositorioEquipos.ObtenerTodos();
         }
 
         private static void copiarPropiedades(Asignacion original, Asignacion copia)

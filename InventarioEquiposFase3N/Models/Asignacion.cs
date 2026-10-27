@@ -83,6 +83,22 @@ namespace InventarioEquiposFase3N.Models
         }
 
 
+        private string _estado = string.Empty;
+        public string Estado
+        {
+            get => _estado;
+            set
+            {
+                if (_estado != value)
+                {
+                    _estado = value;
+                    OnPropertyChanged(nameof(Estado));
+                }
+            }
+        }
+
+
+
         private string _observacion = string.Empty;
         public string Observacion
         {
@@ -99,12 +115,13 @@ namespace InventarioEquiposFase3N.Models
 
         public Asignacion() { }
 
-        public Asignacion(string equipo, string empleado, DateTime fechaAsignacion, DateTime fechaDevolucion, string observacion)
+        public Asignacion(string equipo, string empleado, DateTime fechaAsignacion, DateTime fechaDevolucion, string estado, string observacion)
         {
             _equipo = equipo;
             _empleado = empleado;
             _fechaAsignacion = fechaAsignacion;
             _fechaDevolucion = fechaDevolucion;
+            _estado = estado;
             _observacion = observacion;
         }
 

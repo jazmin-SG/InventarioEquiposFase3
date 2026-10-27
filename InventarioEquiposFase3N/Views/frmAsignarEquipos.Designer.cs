@@ -30,14 +30,14 @@ namespace InventarioEquiposFase3N
             btnAsignar = new Button();
             btnCambiar = new Button();
             btnDevolverEquipo = new Button();
-            dtgHistorialDeAsignaciones = new DataGridView();
+            dgvHistorialDeAsignaciones = new DataGridView();
             btnSalir = new Button();
             label5 = new Label();
             dtpFechaDevolucion = new DateTimePicker();
             label6 = new Label();
             cmbEstadoEquipo = new ComboBox();
             errorProvider1 = new ErrorProvider(components);
-            ((System.ComponentModel.ISupportInitialize)dtgHistorialDeAsignaciones).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvHistorialDeAsignaciones).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
@@ -58,6 +58,7 @@ namespace InventarioEquiposFase3N
             cmbEquipoAsignar.Name = "cmbEquipoAsignar";
             cmbEquipoAsignar.Size = new Size(151, 28);
             cmbEquipoAsignar.TabIndex = 1;
+            cmbEquipoAsignar.SelectedIndexChanged += cmbEquipoAsignar_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -119,6 +120,7 @@ namespace InventarioEquiposFase3N
             btnAsignar.TabIndex = 8;
             btnAsignar.Text = "Asignar";
             btnAsignar.UseVisualStyleBackColor = true;
+            btnAsignar.Click += btnAsignar_Click;
             // 
             // btnCambiar
             // 
@@ -128,6 +130,7 @@ namespace InventarioEquiposFase3N
             btnCambiar.TabIndex = 9;
             btnCambiar.Text = "Editar";
             btnCambiar.UseVisualStyleBackColor = true;
+            btnCambiar.Click += btnCambiar_Click;
             // 
             // btnDevolverEquipo
             // 
@@ -137,19 +140,20 @@ namespace InventarioEquiposFase3N
             btnDevolverEquipo.TabIndex = 10;
             btnDevolverEquipo.Text = "Devolver Equipo";
             btnDevolverEquipo.UseVisualStyleBackColor = true;
+            btnDevolverEquipo.Click += btnDevolverEquipo_Click;
             // 
-            // dtgHistorialDeAsignaciones
+            // dgvHistorialDeAsignaciones
             // 
-            dtgHistorialDeAsignaciones.AllowUserToAddRows = false;
-            dtgHistorialDeAsignaciones.AllowUserToDeleteRows = false;
-            dtgHistorialDeAsignaciones.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dtgHistorialDeAsignaciones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgHistorialDeAsignaciones.Location = new Point(2, 325);
-            dtgHistorialDeAsignaciones.Name = "dtgHistorialDeAsignaciones";
-            dtgHistorialDeAsignaciones.ReadOnly = true;
-            dtgHistorialDeAsignaciones.RowHeadersWidth = 51;
-            dtgHistorialDeAsignaciones.Size = new Size(803, 186);
-            dtgHistorialDeAsignaciones.TabIndex = 11;
+            dgvHistorialDeAsignaciones.AllowUserToAddRows = false;
+            dgvHistorialDeAsignaciones.AllowUserToDeleteRows = false;
+            dgvHistorialDeAsignaciones.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvHistorialDeAsignaciones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvHistorialDeAsignaciones.Location = new Point(2, 325);
+            dgvHistorialDeAsignaciones.Name = "dgvHistorialDeAsignaciones";
+            dgvHistorialDeAsignaciones.ReadOnly = true;
+            dgvHistorialDeAsignaciones.RowHeadersWidth = 51;
+            dgvHistorialDeAsignaciones.Size = new Size(803, 186);
+            dgvHistorialDeAsignaciones.TabIndex = 11;
             // 
             // btnSalir
             // 
@@ -209,7 +213,7 @@ namespace InventarioEquiposFase3N
             Controls.Add(dtpFechaDevolucion);
             Controls.Add(label5);
             Controls.Add(btnSalir);
-            Controls.Add(dtgHistorialDeAsignaciones);
+            Controls.Add(dgvHistorialDeAsignaciones);
             Controls.Add(btnDevolverEquipo);
             Controls.Add(btnCambiar);
             Controls.Add(btnAsignar);
@@ -223,7 +227,7 @@ namespace InventarioEquiposFase3N
             Controls.Add(label1);
             Name = "frmAsignarEquipos";
             Text = "Asignación de Equipos";
-            ((System.ComponentModel.ISupportInitialize)dtgHistorialDeAsignaciones).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvHistorialDeAsignaciones).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -242,7 +246,7 @@ namespace InventarioEquiposFase3N
         private Button btnAsignar;
         private Button btnCambiar;
         private Button btnDevolverEquipo;
-        private DataGridView dtgHistorialDeAsignaciones;
+        private DataGridView dgvHistorialDeAsignaciones;
         private Button btnSalir;
         private Label label5;
         private DateTimePicker dtpFechaDevolucion;
