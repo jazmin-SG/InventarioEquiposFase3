@@ -40,6 +40,14 @@ namespace InventarioEquiposFase3N.Models
             }
         }
        
+        public void Validar()
+        {
+            if (string.IsNullOrWhiteSpace(Codigo))
+                throw new ArgumentException("Ingrese el código del departamento.");
+            if (string.IsNullOrWhiteSpace(Nombre))
+                throw new ArgumentException("Ingrese el nombre del departamento.");
+        }
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         private void OnPropertyChanged(string propertyName)

@@ -52,9 +52,25 @@ namespace InventarioEquiposFase3N
 
         private void mnuDepartamento_Click(object sender, EventArgs e)
         {
-            frmDepartamentos frm = new frmDepartamentos();
-            frm.MdiParent = this;
-            frm.Show();
+            var abierta = MdiChildren.OfType<frmDepartamentos>().FirstOrDefault();
+            if (abierta != null)
+            {
+                abierta.Activate();
+                return;
+            }
+
+            try
+            {
+                var repositorio = new Repositorios.RepositorioDepartamentos();
+                var frm = new frmDepartamentos(new DepartamentoController(repositorio));
+                frm.MdiParent = this;
+                frm.Show();
+            }
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidDataException)
+            {
+                MessageBox.Show(this, ex.Message, "No se pudo abrir Departamentos",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void mnuMantenimiento_Click(object sender, EventArgs e)
